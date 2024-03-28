@@ -18,9 +18,9 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   const fg_color3 = [255, 93, 35];
 
   let headSize = 20
-  let eyeSize = 5;
+  let eyeSize = 2;
   let centerX = 0;
-  let Iy = -4
+  let Iy = - 5;
   let distactBetweenEyes = 5
   let MouthDrop = 7
   
