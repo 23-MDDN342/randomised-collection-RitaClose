@@ -6,3 +6,6 @@
 >This starter code is just some simple faces being drawn. 
 
 
+### Journal
+
+I began this project knowing I wanted to create a dragon-like creature and due to the random multiples of the creature the Laconian Hydra is the natural choice.
