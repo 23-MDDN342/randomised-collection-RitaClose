@@ -18,7 +18,7 @@ function setup () {
 
   // create sliders
   slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
+  slider2 = createSlider(0, 100, 0);
   slider3 = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
@@ -90,7 +90,8 @@ function draw () {
   //  let eye_value = int(map(s3, 0, 100, 1, 3));
   //  orangeAlienFace(tilt_value, eye_value, mouth_value);
   let sideTilt = map(s1, 0, 100, -10, 10);
-  hydraFace(sideTilt);
+  let jawDrop = map(s2, 0, 100, 0, 2);
+  hydraFace(sideTilt, jawDrop);
   }
 
   if (mode == '2') {

@@ -14,8 +14,9 @@
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 
-function hydraFace(sideTilt) {
+function hydraFace(sideTilt, jawDrop) {
   const bg_color = [71, 222, 219];
+  let eye_color = color(219, 173, 7);
 
   let XPos = 0;
   let YPos = 0;
@@ -43,8 +44,10 @@ function hydraFace(sideTilt) {
 
     yDip = tilt * 0.1;
 
-    rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip);
-    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip);
+    rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color);
+    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color);
+    fill(250);
+    triangle(XPos + (clOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
   } else {
     lOffset = tilt * -0.75;
     rOffset = tilt * 0.1;
@@ -54,26 +57,56 @@ function hydraFace(sideTilt) {
 
     yDip = (tilt * -1) * 0.1;
 
-    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip);
-    rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip);
-  }
+    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color);
+    rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color);
+    fill(250);
+    triangle(XPos + (crOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
+ }
 }
 
 
-function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip) {
+function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color) {
   //Face
   fill(240)
   quad(XPos + (clOffset * 1.05), YPos - (yDip * 0.4), XPos - 6 + lOffset, YPos - 3, XPos - 4 + lOffset, YPos + 5, XPos + cOffset, YPos + 7 - yDip);
+ 
+  //Jaw
+  fill(90);
+  quad(XPos + cOffset, YPos + 7 - yDip, XPos - 4 + lOffset, YPos + 5, XPos - 3 + lOffset, YPos + 7, XPos + clOffset, YPos + 8 + jawDrop);
+  //Teeth
+  for(i = 0; i < 4; i ++) {
+    fill(255);
+    rect(XPos + cOffset - (i * (0.8 + clOffset * 0.1) + 0.5), YPos + 5.3 - (i * clOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
+  }
+  //Jaw part 2
+  fill(180);
+  quad(XPos + cOffset, YPos + 7 - yDip + jawDrop, XPos - 4 + lOffset, YPos + 5, XPos - 3 + lOffset, YPos + 7, XPos - 1.5 + clOffset, YPos + 8 + jawDrop);
   //Eyes
-  fill(80);
-  // quad(XPos - 2 + clOffset, YPos, XPos - 5 + (lOffset), YPos - 1.5, XPos - 4.6 + (rOffset), YPos, XPos - 2 + clOffset, YPos + 1.25);
-  ellipse(XPos - 3 + clOffset / 2, YPos, (cOffset * 0.2) + 3, 1.5);
+  stroke(80);
+  strokeWeight(0.1);
+  if(clOffset >= 0) {
+    fill(eye_color);
+    curve(XPos - 1 + clOffset / 2, YPos - 4, XPos - 2 + clOffset / 2, YPos + 0.5, XPos - 4 + clOffset * 0.1, YPos -0.5, XPos + 2 - clOffset / 4, YPos - 10);
+    fill(50);
+    ellipse(XPos - 3 + clOffset * 0.3, YPos + 0.4, 1);
+    fill(80);
+    curve(XPos - 1 + clOffset / 2, YPos + 2 + yDip * 6, XPos - 2 + clOffset / 2, YPos + 0.5, XPos - 4 + clOffset * 0.1, YPos - 0.5, XPos + 2 * clOffset / 2, YPos + 2);
+  } else {
+    fill(eye_color);
+    curve(XPos - 1 + clOffset, YPos - 4, XPos - 2 + clOffset / 2, YPos + 0.5, XPos - 4 - clOffset, YPos -0.5, XPos + 2 + clOffset, YPos - 10);
+    fill(50);
+    ellipse(XPos - 3 - clOffset * 0.3, YPos + 0.4, 1 + clOffset / 3);
+    fill(80);
+    curve(XPos - 1 + clOffset, YPos + 2 + yDip * 6, XPos - 2 + clOffset / 2, YPos + 0.5, XPos - 4 - clOffset, YPos - 0.5, XPos - 4 - clOffset, YPos - 0.5);
+  }
+  noStroke();
+  // ellipse(XPos - 3 + clOffset / 2, YPos, (cOffset * 0.2) + 3, 1.5);
   //Nose
   fill(250);
   quad(XPos + cOffset, YPos + 4, XPos - 2.5 + clOffset, YPos + 4, XPos - 3 + clOffset, YPos + 6, XPos + cOffset, YPos + 6);
   //Mouth
   fill(230);
-  quad(XPos + cOffset, YPos + 6, XPos - 3 + clOffset, YPos + 6, XPos - 1.5 + clOffset, YPos + 8, XPos + clOffset, YPos + 8);
+  quad(XPos + cOffset, YPos + 6 + jawDrop, XPos - 3 + clOffset, YPos + 6 + jawDrop, XPos - 1.5 + clOffset, YPos + 8 + jawDrop, XPos + clOffset, YPos + 8 + jawDrop);
   //Nostrils
   fill(200);
   quad(XPos - 0.5 + (cOffset * 0.8), YPos + 5.25, XPos - 2 + clOffset, YPos + 4.5, XPos - 2 + clOffset, YPos + 5, XPos - 0.5 + (cOffset * 0.8), YPos + 5.5);
@@ -85,20 +118,47 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip) {
   quad(XPos + (clOffset * 0.4), YPos -  5 + (yDip * 1.5), XPos - 4 + lOffset, YPos - 5.5, XPos - 6 + lOffset, YPos - 3, XPos + (cOffset * 0.8), YPos - (yDip * 0.2));
 
   }
-  function rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip) {
+  function rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color) {
+    //Face
     fill(235);
     quad(XPos + (crOffset * 1.05), YPos - (yDip * 0.4), XPos + 6 + rOffset, YPos - 3, XPos + 4 + rOffset, YPos + 5, XPos + cOffset, YPos + 7 - yDip);
-    fill(80);
-    // quad(XPos + 2 + crOffset, YPos, XPos + XPos + 5 + (rOffset), YPos - 1.5, XPos + 4.6 + (rOffset), YPos, XPos + 2 + crOffset, YPos + 1.25);
-    // push();
-    ellipse(XPos + 3 + crOffset / 2, YPos, (cOffset * -0.2) + 3, 1.5);
-    // rotate(20);
-    // translate(XPos + 3 + crOffset / 2, YPos);
-    // pop();
+    //Jaw
+    fill(90);
+    quad(XPos + cOffset, YPos + 7 - yDip, XPos + 4 + rOffset, YPos + 5, XPos + 3 + rOffset, YPos + 7, XPos + crOffset, YPos + 8 + jawDrop);
+    //Teeth
+    for(i = 0; i < 4; i ++) {
+      fill(255);
+      rect(XPos + cOffset + (i * (0.8 - crOffset * 0.1) + 0.5), YPos + 5.3 + (i * crOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
+    }
+    //Jaw Part 2
+    fill(180);
+    quad(XPos + cOffset, YPos + 7 - yDip + jawDrop, XPos + 4 + rOffset, YPos + 5, XPos + 3 + rOffset, YPos + 7, XPos + 1.5 + crOffset, YPos + 8 + jawDrop);
+    
+    //Eyes
+    stroke(80);
+    strokeWeight(0.1);
+    if(crOffset <= 0) {
+      fill(eye_color);
+      curve(XPos + 1 + crOffset / 2, YPos - 4, XPos + 2 + crOffset / 2, YPos + 0.5, XPos + 4 + crOffset * 0.1, YPos -0.5, XPos - 4 - crOffset / 4, YPos - 10);
+      fill(50);
+      ellipse(XPos + 3 + crOffset * 0.3, YPos + 0.4, 1);
+      fill(80);
+      curve(XPos + 1 + crOffset / 2, YPos + 2 + yDip * 6, XPos + 2 + crOffset / 2, YPos + 0.5, XPos + 4 + crOffset * 0.1, YPos - 0.5, XPos + 4 * crOffset / 2, YPos + 2);
+    } else {
+      fill(eye_color);
+      curve(XPos + 1 + crOffset, YPos - 4, XPos + 2 + crOffset / 2, YPos + 0.5, XPos + 4 - crOffset, YPos -0.5, XPos -4 + crOffset, YPos - 10);
+      fill(50);
+      ellipse(XPos + 3 - crOffset * 0.3, YPos + 0.4, 1 - crOffset / 3);
+      fill(80);
+      curve(XPos + 1 + crOffset, YPos + 2 + yDip * 6, XPos + 2 + crOffset / 2, YPos + 0.5, XPos + 4 - crOffset, YPos - 0.5, XPos + 4 - crOffset, YPos - 0.5);
+    }
+
+    noStroke();
+
     fill(245);
     quad(XPos + cOffset, YPos + 4, XPos + 2.5 + crOffset, YPos + 4, XPos + 3 + crOffset, YPos + 6, XPos + cOffset, YPos + 6);
     fill(225);
-    quad(XPos + cOffset, YPos + 6, XPos + 3 + crOffset, YPos + 6, XPos + 1.5 + crOffset, YPos + 8, XPos + crOffset, YPos + 8);
+    quad(XPos + cOffset, YPos + 6 + jawDrop, XPos + 3 + crOffset, YPos + 6 + jawDrop, XPos + 1.5 + crOffset, YPos + 8 + jawDrop, XPos + crOffset, YPos + 8 + jawDrop);
     fill(180);
     quad(XPos + 0.5 + (cOffset * 0.8), YPos + 5.25, XPos + 2 + crOffset, YPos + 4.5, XPos + 2 + crOffset, YPos + 5, XPos + 0.5 + (cOffset * 0.8), YPos + 5.5);
     fill(240);

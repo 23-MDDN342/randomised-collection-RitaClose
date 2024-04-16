@@ -46,33 +46,21 @@ function draw () {
   noStroke();
 
   // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
+  let w = canvasWidth / 5;
   let h = canvasHeight / 4;
-  for(let i=0; i<4; i++) {
-    for(let j=0; j<7; j++) {
-      let y = h/2 + h*i;
-      let x = w/2 + w*j;
+  for(let j=0; j<5; j++) {
+    let y = h/2 * int(random(2, 6));
+    let x = width / 2 + int(random(-w * 2, w * 2));
      
         // center face
-        let eye_value = int(random(2,4));
-        let tilt_value = random(-45, 45);
-        let mouth_value = random(3,4);
-        let is_cyclops = random(0, 100);
-
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = random(-5, 5);
-          mouth_value = random(0, 1.7);
-        }
+        let sideTilt = random(-10, 10);
 
         push();
         translate(x, y);
-        scale(w/25, h/25);
+        scale(10 - (y * 0.005));
         
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        hydraFace(sideTilt);
         pop();
-      
-    }
   }
 }
 

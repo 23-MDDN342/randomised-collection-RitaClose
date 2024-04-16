@@ -9,3 +9,6 @@
 ### Journal
 
 I began this project knowing I wanted to create a dragon-like creature and due to the random multiples of the creature the Laconian Hydra is the natural choice.
+
+16/04
+I have started adding the jaw and teeth. The idea with this is the hydra will be able to open and shut it's mouth - I am aiming to have the teeth displace accordingly along the jaw without having to tamper with all of them individualy. I might make the teeth be discrete variables too.
