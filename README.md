@@ -13,6 +13,9 @@ I began this project knowing I wanted to create a dragon-like creature and due t
 16/04
 I have started adding the jaw and teeth. The idea with this is the hydra will be able to open and shut it's mouth - I am aiming to have the teeth displace accordingly along the jaw without having to tamper with all of them individualy. I might make the teeth be discrete variables too.
 
+18/04
+I have begun to clean up the jaw area so there are less random artifacts hanging around. I have also added in an eyetilt, though it is not entirely working yet. Next I am going to work on adding the rest of the neck, backing for the throat, and some teeth before I move on to the horns and then the colour scheme. After that will just be adding deatails to the face as well as joining each head to necks in the arrangement area.
+
 Pages Link:
 https://23-mddn342.github.io/randomised-collection-RitaClose/ 
 

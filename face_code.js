@@ -35,6 +35,16 @@ function hydraFace(sideTilt, jawDrop, eyeTilt) {
   noStroke();
   angleMode(DEGREES);
 
+  fill(0);
+
+  // vertex(XPos + (crOffset * 1.05), YPos - (yDip * 0.4));
+  // vertex(XPos - 6 + rOffset, YPos - 3);
+  // vertex(XPos - 4 + rOffset, YPos + 5);
+  // vertex(XPos - 4 + rOffset, YPos + 5);
+  // vertex(XPos - 3 + crOffset, YPos + 6 + jawDrop);
+  // vertex(XPos - 1.5 + crOffset, YPos + 8 + jawDrop);
+  // vertex(XPos + crOffset, YPos + 8 + jawDrop);
+
   if (sideTilt > 0) {
     lOffset = tilt * 0.1;
     rOffset = tilt * -0.75;
@@ -66,6 +76,10 @@ function hydraFace(sideTilt, jawDrop, eyeTilt) {
 
 
 function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color, eyeTilt) {
+  
+
+
+  
   //Neck
   fill(220);
   if(cOffset >=0) {
@@ -90,7 +104,11 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   //   rect(XPos + cOffset - (i * (0.8 + clOffset * 0.1) + 0.5), YPos + 5.3 - (i * clOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
   // }
   //Jaw part 2
-  fill(180);
+  if(cOffset >= 0) {
+    fill(180);
+  } else {
+    fill(70);
+  }
   quad(XPos - 3 + clOffset, YPos + 6 + jawDrop, XPos - 4 + lOffset, YPos + 5, XPos - 3 + lOffset, YPos + 7, XPos - 1.5 + clOffset, YPos + 8 + jawDrop);
   //Eyes
   stroke(80);
@@ -150,7 +168,11 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
     //   rect(XPos + cOffset + (i * (0.8 - crOffset * 0.1) + 0.5), YPos + 5.3 + (i * crOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
     // }
     //Jaw Part 2
-    fill(180);
+    if(cOffset <= 0) {
+      fill(180);
+    } else {
+      fill(70);
+    }
     quad(XPos + 3 + crOffset, YPos + 6 + jawDrop, XPos + 4 + rOffset, YPos + 5, XPos + 3 + rOffset, YPos + 7, XPos + 1.5 + crOffset, YPos + 8 + jawDrop);
     
     //Eyes

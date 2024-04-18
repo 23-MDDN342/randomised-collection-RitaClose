@@ -54,12 +54,14 @@ function draw () {
      
         // center face
         let sideTilt = random(-10, 10);
+        let jawDrop = random(0, 3);
+        let eyeTilt = random(-1, 0.5);
 
         push();
         translate(x, y);
         scale(10 - (y * 0.005));
         
-        hydraFace(sideTilt);
+        hydraFace(sideTilt, jawDrop, eyeTilt);
         pop();
   }
 }
