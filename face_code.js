@@ -14,7 +14,7 @@
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 
-function hydraFace(sideTilt, jawDrop) {
+function hydraFace(sideTilt, jawDrop, eyeTilt) {
   const bg_color = [71, 222, 219];
   let eye_color = color(219, 173, 7);
 
@@ -45,7 +45,7 @@ function hydraFace(sideTilt, jawDrop) {
     yDip = tilt * 0.1;
 
     rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color);
-    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color);
+    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color, eyeTilt);
     fill(250);
     triangle(XPos + (clOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
   } else {
@@ -57,7 +57,7 @@ function hydraFace(sideTilt, jawDrop) {
 
     yDip = (tilt * -1) * 0.1;
 
-    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color);
+    leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color, eyeTilt);
     rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color);
     fill(250);
     triangle(XPos + (crOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
@@ -65,7 +65,17 @@ function hydraFace(sideTilt, jawDrop) {
 }
 
 
-function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color) {
+function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color, eyeTilt) {
+  //Neck
+  fill(220);
+  if(cOffset >=0) {
+    quad(XPos - 4 + lOffset, YPos - 5.5, XPos - 4 - lOffset * 3.5, YPos - 5.5, XPos - 6 - lOffset * 0.4, YPos - 3, XPos - 6 + lOffset, YPos - 3);
+    fill(200);
+    quad(XPos - 6 + lOffset, YPos - 3, XPos - 6 - lOffset * 0.4, YPos - 3, XPos - 4 - lOffset * 2, YPos + 5, XPos - 4 + lOffset, YPos + 5);
+    fill(180);
+    quad(XPos - 4 + lOffset, YPos + 5, XPos - 4 - lOffset * 2, YPos + 5, XPos - 3 - lOffset * 1.5, YPos + 8, XPos - 3 + lOffset, YPos + 7);
+  }
+  
   //Face
   fill(240)
   quad(XPos + (clOffset * 1.05), YPos - (yDip * 0.4), XPos - 6 + lOffset, YPos - 3, XPos - 4 + lOffset, YPos + 5, XPos + cOffset, YPos + 7 - yDip);
@@ -74,10 +84,10 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   fill(90);
   quad(XPos + cOffset, YPos + 7 - yDip, XPos - 4 + lOffset, YPos + 5, XPos - 3 + lOffset, YPos + 7, XPos + clOffset, YPos + 8 + jawDrop);
   //Teeth
-  for(i = 0; i < 4; i ++) {
-    fill(255);
-    rect(XPos + cOffset - (i * (0.8 + clOffset * 0.1) + 0.5), YPos + 5.3 - (i * clOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
-  }
+  // for(i = 0; i < 4; i ++) {
+  //   fill(255);
+  //   rect(XPos + cOffset - (i * (0.8 + clOffset * 0.1) + 0.5), YPos + 5.3 - (i * clOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
+  // }
   //Jaw part 2
   fill(180);
   quad(XPos + cOffset, YPos + 7 - yDip + jawDrop, XPos - 4 + lOffset, YPos + 5, XPos - 3 + lOffset, YPos + 7, XPos - 1.5 + clOffset, YPos + 8 + jawDrop);
@@ -86,11 +96,15 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   strokeWeight(0.1);
   if(clOffset >= 0) {
     fill(eye_color);
-    curve(XPos - 1 + clOffset / 2, YPos - 4, XPos - 2 + clOffset / 2, YPos + 0.5, XPos - 4 + clOffset * 0.1, YPos -0.5, XPos + 2 - clOffset / 4, YPos - 10);
-    fill(50);
-    ellipse(XPos - 3 + clOffset * 0.3, YPos + 0.4, 1);
+    curve(XPos - 5 + clOffset / 2 + eyeTilt * 2, YPos - 4 + eyeTilt * 2, XPos - 2 + clOffset / 2, YPos + 0.5 + eyeTilt, XPos - 4 + clOffset * 0.1, YPos -0.5 - eyeTilt, XPos + 2 - clOffset / 4 + eyeTilt * 4, YPos - 10);
+    fill(250, 200, 10);
+    noStroke();
+    ellipse(XPos - 3 + clOffset * 0.3 + cOffset / 12, YPos + 0.4 + eyeTilt / 4, 1 - eyeTilt / 3);
+    fill(0);
+    ellipse(XPos - 3 + clOffset * 0.3 + cOffset / 10, YPos + 0.4 + eyeTilt / 4, 0.4 - eyeTilt / 5, 1);
+    stroke(80);
     fill(80);
-    curve(XPos - 1 + clOffset / 2, YPos + 2 + yDip * 6, XPos - 2 + clOffset / 2, YPos + 0.5, XPos - 4 + clOffset * 0.1, YPos - 0.5, XPos + 2 * clOffset / 2, YPos + 2);
+    curve(XPos - 1 + clOffset / 2, YPos + 2 + yDip * 6 + eyeTilt, XPos - 2 + clOffset / 2, YPos + 0.5 + eyeTilt, XPos - 4 + clOffset * 0.1, YPos - 0.5 - eyeTilt, XPos + 2 * clOffset / 2, YPos + 2 - eyeTilt);
   } else {
     fill(eye_color);
     curve(XPos - 1 + clOffset, YPos - 4, XPos - 2 + clOffset / 2, YPos + 0.5, XPos - 4 - clOffset, YPos -0.5, XPos + 2 + clOffset, YPos - 10);
@@ -126,10 +140,10 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
     fill(90);
     quad(XPos + cOffset, YPos + 7 - yDip, XPos + 4 + rOffset, YPos + 5, XPos + 3 + rOffset, YPos + 7, XPos + crOffset, YPos + 8 + jawDrop);
     //Teeth
-    for(i = 0; i < 4; i ++) {
-      fill(255);
-      rect(XPos + cOffset + (i * (0.8 - crOffset * 0.1) + 0.5), YPos + 5.3 + (i * crOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
-    }
+    // for(i = 0; i < 4; i ++) {
+    //   fill(255);
+    //   rect(XPos + cOffset + (i * (0.8 - crOffset * 0.1) + 0.5), YPos + 5.3 + (i * crOffset * 0.03) + jawDrop, 0.4, 1, 0.1);
+    // }
     //Jaw Part 2
     fill(180);
     quad(XPos + cOffset, YPos + 7 - yDip + jawDrop, XPos + 4 + rOffset, YPos + 5, XPos + 3 + rOffset, YPos + 7, XPos + 1.5 + crOffset, YPos + 8 + jawDrop);
