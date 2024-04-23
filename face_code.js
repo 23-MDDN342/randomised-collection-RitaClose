@@ -60,10 +60,15 @@ function hydraFace(sideTilt, jawDrop, eyeTilt) {
 
     rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color, eyeTilt);
     leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color, eyeTilt);
-    fill(124, 100, 90);
-    triangle(XPos + (clOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
+    // fill(124, 100, 90);
+    // triangle(XPos + (clOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
+    // //Horns
+    // fill(140, 100, 80);
+    // triangle(XPos - 2 - (clOffset * 0.2), YPos - 2 + (yDip * -1), XPos - 4 - (clOffset * 0.2), YPos -  3 + (yDip * -1), XPos - 3.5 - (clOffset * 0.6), YPos -  10 + (yDip * -1));
+    // triangle(XPos + 2 - (clOffset * 0.2), YPos - 2 + (yDip * -1), XPos + 4 - (clOffset * 0.2), YPos -  3 + (yDip * -1), XPos + 3.5 - (clOffset * 0.6), YPos -  10 + (yDip * -1));
+
   } else {
-    lOffset = tilt * -0.75;
+    lOffset = tilt * -0.7
     rOffset = tilt * 0.1;
 
     clOffset = tilt * 0.5;
@@ -73,9 +78,14 @@ function hydraFace(sideTilt, jawDrop, eyeTilt) {
 
     leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop, eye_color, eyeTilt);
     rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color, eyeTilt);
-    fill(124, 100, 90);
-    triangle(XPos + (crOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
- }
+    // fill(124, 100, 90);
+    // triangle(XPos + (crOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
+    //Horns
+    // fill(140, 100, 80);
+    // triangle(XPos - 2 - (clOffset * 0.2), YPos - 2 + (yDip * -1), XPos - 4 - (clOffset * 0.2), YPos -  3 + (yDip * -1), XPos - 3.5 - (clOffset * 0.6), YPos -  10 + (yDip * -1));
+    // triangle(XPos + 2 - (clOffset * 0.2), YPos - 2 + (yDip * -1), XPos + 4 - (clOffset * 0.2), YPos -  3 + (yDip * -1), XPos + 3.5 - (clOffset * 0.6), YPos -  10 + (yDip * -1));
+  
+  }
 }
 
 
@@ -194,14 +204,12 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   fill(124, 100, 100);
   quad(XPos + (clOffset * 0.4), YPos -  5 + (yDip * 1.5), XPos - 4 + lOffset, YPos - 5.5, XPos - 6 + lOffset, YPos - 3, XPos + (cOffset * 0.8), YPos - (yDip * 0.2));
 
-  // //Horns
-  // fill(140, 100, 50);
-  // // quad(XPos - 2, YPos - 4, XPos - 2, YPos - 5, XPos - 4, YPos - 5, XPos - 4, YPos - 3);
-  // bezier(XPos - 4, YPos - 4, XPos - 3, YPos - 6, XPos - 2, YPos - 4, XPos - 2, YPos - 3);
-
-  fill(140, 100, 50);
-  // triangle(XPos - 2 (clOffset * 0.4), YPos -  3 + (yDip * 1.5), XPos - 4 (clOffset * 0.4), YPos -  3 + (yDip * 1.5));
-
+  fill(124, 100, 90);
+  triangle(XPos + (clOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
+  
+  //Horns
+  fill(140, 100, 80);
+  triangle(XPos - 2 - (clOffset * 0.2), YPos - 2 + (yDip * -1), XPos - 4 - (clOffset * 0.2), YPos -  3 + (yDip * -1), XPos - 3.5 - (clOffset * 0.6), YPos -  10 + (yDip * -1));
 
   }
   function rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color, eyeTilt) {
@@ -282,71 +290,12 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
     quad(XPos + (crOffset * 0.7), YPos - 2, XPos + 1 + (crOffset * 0.7), YPos - 2, XPos + 2 + crOffset, YPos + 4, XPos + cOffset, YPos + 5 - yDip);
     fill(124, 100, 95);
     quad(XPos + (crOffset * 0.4), YPos -  5 + (yDip * 1.5), XPos + 4 + rOffset, YPos - 5.5, XPos + 6 + rOffset, YPos - 3, XPos + (cOffset * 0.8), YPos - (yDip * 0.2));
-}
 
-function orangeAlienFace(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [71, 222, 219];
-  const fg_color3 = [255, 93, 35];
+    // fill(124, 100, 90);
+    // triangle(XPos + (crOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
+    
+    //Horns
+    fill(140, 100, 80);
+    triangle(XPos + 2 - (crOffset * 0.2), YPos - 2 + (yDip * -1), XPos + 4 - (crOffset * 0.2), YPos -  3 + (yDip * -1), XPos + 3.5 - (crOffset * 0.6), YPos -  10 + (yDip * -1));
 
-  let headSize = 20
-  let eyeSize = 2;
-  let centerX = 0;
-  let Iy = - 5;
-  let distactBetweenEyes = 5
-  let MouthDrop = 7
-  
-  // rotation in degrees
-  angleMode(DEGREES);
-  rotate(tilt_value);
-
- // head
-  noStroke();
-  fill(fg_color3);
-  ellipse(centerX, 0, headSize, headSize);
-
-  // 2 traditonal eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color3);
-    ellipse(centerX, Iy, eyeSize-1,eyeSize);
-   
   }
-// middle eye
-  if (eye_value >= 2) {
-    fill(bg_color3);
-    ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
-    ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
-  }
-
-  // mouth
-  fill(bg_color3);
-  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
-}
-
-
-function simplePurpleFace() {
-  fill(234, 122, 244);
-  noStroke();
-  // head
-  ellipse(0, 0, 20);
-  // eyes
-  fill(255, 217, 114);
-  ellipse(-3, -3, 3);
-  ellipse( 3, -3, 3);
-}
-
-/*
- * thinness_value ranges from 0-100 and indicates how thin the face is
- */
-function blockyFace(thinness_value) {
-  // head
-  noStroke();
-  fill(134, 19, 136);
-  let head_width = map(thinness_value, 0, 100, 8, 20);
-  rect(-head_width/2, -9, head_width, 18);
- 
-
-  // eyes
-  fill(234, 122, 244);
-  ellipse(-2, -4, 1);
-  ellipse( 2, -4, 1);
-}

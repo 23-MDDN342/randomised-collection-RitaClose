@@ -16,6 +16,9 @@ I have started adding the jaw and teeth. The idea with this is the hydra will be
 18/04
 I have begun to clean up the jaw area so there are less random artifacts hanging around. I have also added in an eyetilt, though it is not entirely working yet. Next I am going to work on adding the rest of the neck, backing for the throat, and some teeth before I move on to the horns and then the colour scheme. After that will just be adding deatails to the face as well as joining each head to necks in the arrangement area.
 
+23/04
+I have started editing the arrangment file and discovered that instead of using complicated maths to work out where the shapes need to go I can just find the points on a bezier curve and add detailing with shapes through that method. Next I will be adding teeth, finishing the horns, and working out how to add in a discrete variable or two.
+
 Pages Link:
 https://23-mddn342.github.io/randomised-collection-RitaClose/ 
 

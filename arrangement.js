@@ -42,7 +42,7 @@ function draw () {
   randomSeed(curRandomSeed);
 
   // clear screen
-  background(bg_color1);
+  background(6, 30, 20);
   noStroke();
 
   // draw a 7x4 grid of faces
@@ -61,12 +61,12 @@ function draw () {
         noStroke();
 
         let bX1 = x - sideTilt,
-        bX2 = x - sideTilt * 60,
+        bX2 = x - sideTilt * 60 + sin(frameCount * 0.5) * 20,
         bX3 = width / 2 + random(-100, 100),
-        bX4 = width / 2;
+        bX4 = width / 2 - sin(frameCount * 0.5) * 20;
 
         let bY1 =  y - 35,
-        bY2 = y + 10,
+        bY2 = y + 10 + sin(frameCount * 0.5) * 20,
         bY3 = height + random(-30, 30),
         bY4 = height;
 
@@ -89,27 +89,33 @@ function draw () {
 
         blendMode(OVERLAY);
         noStroke();
-        for(i = 0; i <= steps; i ++) {
-          let t = i / steps;
-          let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
-          let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124, 100, 50);
-          rect(neckX - 5, neckY, 70, 100, 8);
-          fill(124, 100, 70);
-          rect(neckX, neckY - 15, 40, 30, 8);
-          fill(124, 100, 50);
-          rect(neckX - 15, neckY - 10, 55, 40, 8);
-          fill(124, 100, 40);
-          rect(neckX - 10, neckY + 40, 40, 40, 8);
-        }
+        // for(i = 0; i <= steps; i ++) {
+        //   let t = i / steps;
+        //   let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
+        //   let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
+        //   fill(124, 100, 50);
+        //   rect(neckX - 5, neckY, 70, 100, 8);
+        //   fill(124, 100, 70);
+        //   rect(neckX, neckY - 15, 40, 30, 8);
+        //   fill(124, 100, 50);
+        //   rect(neckX - 15, neckY - 10, 55, 40, 8);
+        //   fill(124, 100, 40);
+        //   rect(neckX - 10, neckY + 40, 40, 40, 8);
+        // }
 
         colorMode(RGB);
         blendMode(BLEND);
 
         push();
         translate(x, y);
+        if (j % 2 ==1) {
+          rotate(sin(frameCount * 0.5) * 2);
+        } else {
+          rotate(sin(frameCount *  -0.5) * 2);
+        }
         scale(10 - (y * 0.005));
         
+
         hydraFace(sideTilt, jawDrop, eyeTilt);
         pop();
 
