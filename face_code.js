@@ -105,18 +105,18 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   fill(124, 100, 70)
   quad(XPos + (clOffset * 1.05), YPos - (yDip * 0.4), XPos - 6 + lOffset, YPos - 3, XPos - 4 + lOffset, YPos + 5, XPos - 3 + clOffset, YPos + 6);
  
-  let leftFaceY = map(lineYBit, )
+  // let leftFaceY = map(lineYBit, )
 
-  let lineYBit;
+  // let lineYBit;
 
 
-  noFill();
-  stroke(220, 100, 100);
-  strokeWeight(0.1);
+  // noFill();
+  // stroke(220, 100, 100);
+  // strokeWeight(0.1);
 
-  for(i = 0; i < 20; i ++) {
-    line()
-  }
+  // for(i = 0; i < 20; i ++) {
+  //   line()
+  // }
 
   // faceY1 = YPos - (yDip * 0.4);
   // faceY2 = YPos - 3;
@@ -175,11 +175,12 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   fill(124, 100, 95);
   quad(XPos + cOffset, YPos + 4, XPos - 2.5 + clOffset, YPos + 4, XPos - 3 + clOffset, YPos + 6, XPos + cOffset, YPos + 6);
   
-  //Teeth
-  fill(0, 0, 100);
-  for(i = 0; i < 5; i ++) {
-    triangle(XPos + cOffset - i * clOffset * 0.1, YPos + 6 + jawDrop, XPos + cOffset + 1 - i * clOffset * 0.1, YPos + 6 + jawDrop, XPos + cOffset + 0.5 - i * clOffset * 0.1, YPos + 5.5 - i / 10 + jawDrop);
-  }
+  // //Teeth
+  // fill(0, 0, 100);
+  // for(i = 0; i < 5; i ++) {
+  //   triangle(XPos + cOffset - i * clOffset * 0.1, YPos + 6 + jawDrop, XPos + cOffset + 1 - i * clOffset * 0.1, YPos + 6 + jawDrop, XPos + cOffset + 0.5 - i * clOffset * 0.1, YPos + 5.5 - i / 10 + jawDrop);
+  // }
+
   //Mouth
   fill(124, 100, 85);
   quad(XPos + cOffset, YPos + 6 + jawDrop, XPos - 3 + clOffset, YPos + 6 + jawDrop, XPos - 1.5 + clOffset, YPos + 8 + jawDrop, XPos + clOffset, YPos + 8 + jawDrop);
@@ -197,6 +198,9 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   // fill(140, 100, 50);
   // // quad(XPos - 2, YPos - 4, XPos - 2, YPos - 5, XPos - 4, YPos - 5, XPos - 4, YPos - 3);
   // bezier(XPos - 4, YPos - 4, XPos - 3, YPos - 6, XPos - 2, YPos - 4, XPos - 2, YPos - 3);
+
+  fill(140, 100, 50);
+  // triangle(XPos - 2 (clOffset * 0.4), YPos -  3 + (yDip * 1.5), XPos - 4 (clOffset * 0.4), YPos -  3 + (yDip * 1.5));
 
 
   }
