@@ -71,37 +71,63 @@ function draw () {
         bY4 = height;
 
         colorMode(HSB);
+        let steps = 80;
+        rectMode(CENTER);
 
         stroke(124, 100, 60);
         strokeWeight(5);
         bezier(bX1, bY1 - 10, bX2, bY2 - 10, bX3, bY3 - 10, bX4, bY4 - 10);
+        strokeWeight(2);
+        for(i = 0; i <= steps; i ++) {
+          let t = i / steps;
+          let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
+          let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
+          fill(124, 100, 50);
+          // rect(neckX, neckY - 10, 20, 20, 8);
+          arc(neckX, neckY - 10, 20, 30, 0, 180, CHORD);
+        }
+
+        noFill();
         stroke(124, 100, 40);
         strokeWeight(30);
         bezier(bX1, bY1, bX2, bY2, bX3, bY3, bX4, bY4);
+        strokeWeight(2);
+        for(i = 0; i <= steps; i ++) {
+          let t = i / steps;
+          let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
+          let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
+          fill(124, 100, 70);
+          // rect(neckX, neckY, 20, 20, 8);
+          arc(neckX, neckY, 20, 30, 0, 180, CHORD);
+        }
+
+        noFill();
         stroke(124, 100, 30);
         strokeWeight(50);
         bezier(bX1, bY1 + 40, bX2, bY2 + 40, bX3, bY3 + 40, bX4, bY4 + 40);
+        strokeWeight(2);
+        for(i = 0; i <= steps; i ++) {
+          let t = i / steps;
+          let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
+          let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
+          fill(124, 100, 50);
+          // rect(neckX, neckY + 40, 20, 20, 8);
+          arc(neckX, neckY + 40, 20, 30, 0, 180, CHORD);
+        }
+
+        noFill();
         stroke(124, 100, 20);
         strokeWeight(40);
         bezier(bX1, bY1 + 80, bX2, bY2 + 80, bX3, bY3 + 80, bX4, bY4 + 80);
-
-        let steps = 30;
-
-        blendMode(OVERLAY);
-        noStroke();
-        // for(i = 0; i <= steps; i ++) {
-        //   let t = i / steps;
-        //   let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
-        //   let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-        //   fill(124, 100, 50);
-        //   rect(neckX - 5, neckY, 70, 100, 8);
-        //   fill(124, 100, 70);
-        //   rect(neckX, neckY - 15, 40, 30, 8);
-        //   fill(124, 100, 50);
-        //   rect(neckX - 15, neckY - 10, 55, 40, 8);
-        //   fill(124, 100, 40);
-        //   rect(neckX - 10, neckY + 40, 40, 40, 8);
-        // }
+        strokeWeight(2);
+        for(i = 0; i <= steps; i ++) {
+          let t = i / steps;
+          let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
+          let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
+          fill(124, 100, 40);
+          // rect(neckX, neckY + 80, 20, 20, 8);
+          arc(neckX, neckY + 80, 20, 30, 0, 180, CHORD);
+        }
 
         colorMode(RGB);
         blendMode(BLEND);
