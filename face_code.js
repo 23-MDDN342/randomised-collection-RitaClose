@@ -251,13 +251,20 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   //Crown
   noStroke();
   fill(124, 100, 65);
-  triangle(XPos + (clOffset * 0.4), YPos - 5 + (yDip * 1.5), lOffset - 4, YPos - 5.5, rOffset + 4, YPos - 5.5);
+  triangle(XPos + (clOffset * 0.4), YPos - 5 + (yDip * 1.5), XPos + lOffset - 4, YPos - 5.5, XPos + rOffset + 4, YPos - 5.5);
   
   //Horns
-  fill(140, 100, 80);
-  triangle(XPos - 2 - (clOffset * 0.2), YPos - 2 + (yDip * -1), XPos - 4 - (clOffset * 0.2), YPos -  3 + (yDip * -1), XPos - 3.5 - (clOffset * 0.6), YPos -  10 + (yDip * -1));
+  fill(140, 100, 90);
+  triangle(XPos - 2 - (clOffset * 0.01), YPos - 2 + (yDip * -1), XPos - 4 - (clOffset * 0.05), YPos -  3 + (yDip * -0.5), XPos - 3.5 - (clOffset * 0.4), YPos -  10 + (yDip * -1));
+  fill(130, 100, 50);
+  triangle(XPos - 2 - (clOffset * 0.01), YPos - 2 + (yDip * -1), XPos - 1.5 + (clOffset * 0.05), YPos -  2.8 + (yDip * -0.9), XPos - 3.5 - (clOffset * 0.4), YPos -  10 + (yDip * -1));
+  stroke(124, 100, 100);
+  line(XPos - 2 - (clOffset * 0.01), YPos - 2 + (yDip * -1), XPos - 3.5 - (clOffset * 0.4), YPos -  10 + (yDip * -1));  
+}
 
-  }
+
+
+
 
   function rightFace(XPos, YPos, rOffset, cOffset, crOffset, yDip, jawDrop, eye_color, eyeTilt) {
   //Neck

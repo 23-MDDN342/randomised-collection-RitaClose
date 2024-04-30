@@ -76,15 +76,19 @@ function draw () {
 
         stroke(124, 100, 60);
         strokeWeight(5);
-        bezier(bX1, bY1 - 10, bX2, bY2 - 10, bX3, bY3 - 10, bX4, bY4 - 10);
+        bezier(bX1, bY1 - 5, bX2, bY2 - 5, bX3, bY3 - 5, bX4, bY4 - 5);
         strokeWeight(2);
         for(i = 0; i <= steps; i ++) {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124, 100, 50);
-          // rect(neckX, neckY - 10, 20, 20, 8);
-          arc(neckX, neckY - 10, 20, 30, 0, 180, CHORD);
+          stroke(124 + (i / 3), 100, 80 - i);
+          fill(124 + i, 100, 60 - (i / 3));
+          if(i %2 == 1) {
+            circle(neckX, neckY, 20);
+          } else {
+            circle(neckX, neckY + 10, 20);
+          }
         }
 
         noFill();
@@ -96,9 +100,15 @@ function draw () {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124, 100, 70);
-          // rect(neckX, neckY, 20, 20, 8);
-          arc(neckX, neckY, 20, 30, 0, 180, CHORD);
+          fill(124 + i, 100, 40 - (i / 3));
+          stroke(124 + (i / 3), 100, 60 - i);
+          if(i %2 == 1) {
+            circle(neckX, neckY, 30);
+            circle(neckX, neckY + 10, 20);
+          } else {
+            circle(neckX, neckY + 20, 30);
+            circle(neckX, neckY + 30, 20);
+          }
         }
 
         noFill();
@@ -110,23 +120,36 @@ function draw () {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124, 100, 50);
-          // rect(neckX, neckY + 40, 20, 20, 8);
-          arc(neckX, neckY + 40, 20, 30, 0, 180, CHORD);
+          fill(124 + i, 100, 30 - (i / 3));
+          stroke(124 + (i / 3), 100, 50 - i);
+          if(i %2 == 1) {
+            circle(neckX, neckY + 20, 20);
+            circle(neckX, neckY + 30, 20);
+            circle(neckX, neckY + 40, 30);
+          } else {
+            circle(neckX, neckY + 50, 30);
+            circle(neckX, neckY + 60, 20);
+          }
         }
 
         noFill();
         stroke(124, 100, 20);
         strokeWeight(40);
-        bezier(bX1, bY1 + 80, bX2, bY2 + 80, bX3, bY3 + 80, bX4, bY4 + 80);
+        bezier(bX1, bY1 + 70, bX2, bY2 + 70, bX3, bY3 + 70, bX4, bY4 + 70);
         strokeWeight(2);
         for(i = 0; i <= steps; i ++) {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124, 100, 40);
-          // rect(neckX, neckY + 80, 20, 20, 8);
-          arc(neckX, neckY + 80, 20, 30, 0, 180, CHORD);
+          fill(124 + i, 100, 20 - (i / 3));
+          stroke(124 + (i / 3), 100, 40 - i);
+          if(i %2 == 1) {
+            circle(neckX, neckY + 50, 20);
+            circle(neckX, neckY + 60, 30);
+          } else {
+            circle(neckX, neckY + 70, 30);
+            circle(neckX, neckY + 80, 20);
+          }
         }
 
         colorMode(RGB);
