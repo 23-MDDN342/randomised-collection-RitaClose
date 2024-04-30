@@ -71,23 +71,27 @@ function draw () {
         bY4 = height;
 
         colorMode(HSB);
-        let steps = 80;
+        let steps = 200;
         rectMode(CENTER);
+
+        stroke(124, 100, 20);
+        strokeWeight(100);
+        bezier(bX1, bY1 + 40, bX2, bY2 + 40, bX3, bY3 + 40, bX4, bY4 + 40);
 
         stroke(124, 100, 60);
         strokeWeight(5);
         bezier(bX1, bY1 - 5, bX2, bY2 - 5, bX3, bY3 - 5, bX4, bY4 - 5);
-        strokeWeight(2);
+        strokeWeight(1);
         for(i = 0; i <= steps; i ++) {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          stroke(124 + (i / 3), 100, 80 - i);
-          fill(124 + i, 100, 60 - (i / 3));
+          stroke(124 + (i / 5), 100, 80 - (i / 4));
+          fill(124 + (i / 3), 100, 60 - (i / 15));
           if(i %2 == 1) {
-            circle(neckX, neckY, 20);
+            circle(neckX, neckY, 15);
           } else {
-            circle(neckX, neckY + 10, 20);
+            circle(neckX, neckY + 10, 15);
           }
         }
 
@@ -95,19 +99,19 @@ function draw () {
         stroke(124, 100, 40);
         strokeWeight(30);
         bezier(bX1, bY1, bX2, bY2, bX3, bY3, bX4, bY4);
-        strokeWeight(2);
+        strokeWeight(1);
         for(i = 0; i <= steps; i ++) {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124 + i, 100, 40 - (i / 3));
-          stroke(124 + (i / 3), 100, 60 - i);
+          fill(124 + (i / 3), 100, 40 - (i / 15));
+          stroke(124 + (i / 5), 100, 60 - (i / 4));
           if(i %2 == 1) {
-            circle(neckX, neckY, 30);
-            circle(neckX, neckY + 10, 20);
+            circle(neckX, neckY, 15);
+            circle(neckX, neckY + 10, 15);
           } else {
-            circle(neckX, neckY + 20, 30);
-            circle(neckX, neckY + 30, 20);
+            circle(neckX, neckY + 20, 15);
+            circle(neckX, neckY + 30, 15);
           }
         }
 
@@ -115,20 +119,20 @@ function draw () {
         stroke(124, 100, 30);
         strokeWeight(50);
         bezier(bX1, bY1 + 40, bX2, bY2 + 40, bX3, bY3 + 40, bX4, bY4 + 40);
-        strokeWeight(2);
+        strokeWeight(1);
         for(i = 0; i <= steps; i ++) {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124 + i, 100, 30 - (i / 3));
-          stroke(124 + (i / 3), 100, 50 - i);
+          fill(124 + (i / 3), 100, 30 - (i / 15));
+          stroke(124 + (i / 5), 100, 50 - (i / 4));
           if(i %2 == 1) {
-            circle(neckX, neckY + 20, 20);
-            circle(neckX, neckY + 30, 20);
-            circle(neckX, neckY + 40, 30);
+            circle(neckX, neckY + 20, 15);
+            circle(neckX, neckY + 30, 15);
+            circle(neckX, neckY + 40, 15);
           } else {
-            circle(neckX, neckY + 50, 30);
-            circle(neckX, neckY + 60, 20);
+            circle(neckX, neckY + 50, 15);
+            circle(neckX, neckY + 60, 15);
           }
         }
 
@@ -136,19 +140,19 @@ function draw () {
         stroke(124, 100, 20);
         strokeWeight(40);
         bezier(bX1, bY1 + 70, bX2, bY2 + 70, bX3, bY3 + 70, bX4, bY4 + 70);
-        strokeWeight(2);
+        strokeWeight(1);
         for(i = 0; i <= steps; i ++) {
           let t = i / steps;
           let neckX = bezierPoint(bX1, bX2, bX3, bX4, t);
           let neckY = bezierPoint(bY1, bY2, bY3, bY4, t);
-          fill(124 + i, 100, 20 - (i / 3));
-          stroke(124 + (i / 3), 100, 40 - i);
+          fill(124 + (i / 3), 100, 20 - (i / 15));
+          stroke(124 + (i / 5), 100, 40 - (i / 4));
           if(i %2 == 1) {
-            circle(neckX, neckY + 50, 20);
-            circle(neckX, neckY + 60, 30);
+            circle(neckX, neckY + 50, 15);
+            circle(neckX, neckY + 60, 15);
           } else {
-            circle(neckX, neckY + 70, 30);
-            circle(neckX, neckY + 80, 20);
+            circle(neckX, neckY + 70, 15);
+            circle(neckX, neckY + 80, 15);
           }
         }
 

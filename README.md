@@ -19,6 +19,9 @@ I have begun to clean up the jaw area so there are less random artifacts hanging
 23/04
 I have started editing the arrangment file and discovered that instead of using complicated maths to work out where the shapes need to go I can just find the points on a bezier curve and add detailing with shapes through that method. Next I will be adding teeth, finishing the horns, and working out how to add in a discrete variable or two.
 
+30/04
+I discovered a way to use mapping to fill the space of the quads with scales using arcs. I am super happy with the result and I think it's going to be really cool mixed with everything else. I then used the same technique of mapping for the teeth - which I am almost finished - just have to add in some front teeth. I might leave the horns as they are if I run out of time but I will consider adding more detail to them later. After I add in the back of the throat and fix the eyes the face will be done then I can add in special randomness conditions and a discrete variable then just commenting to finish.
+
 Pages Link:
 https://23-mddn342.github.io/randomised-collection-RitaClose/ 
 
