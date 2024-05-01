@@ -22,6 +22,9 @@ I have started editing the arrangment file and discovered that instead of using 
 30/04
 I discovered a way to use mapping to fill the space of the quads with scales using arcs. I am super happy with the result and I think it's going to be really cool mixed with everything else. I then used the same technique of mapping for the teeth - which I am almost finished - just have to add in some front teeth. I might leave the horns as they are if I run out of time but I will consider adding more detail to them later. After I add in the back of the throat and fix the eyes the face will be done then I can add in special randomness conditions and a discrete variable then just commenting to finish.
 
+01/05
+I have finally added a discrete variable in the form of smoke that can be either turned on or off. Hopefully this counts enough. I will make it less common tomorrow when I tackle randomness.
+
 Pages Link:
 https://23-mddn342.github.io/randomised-collection-RitaClose/ 
 

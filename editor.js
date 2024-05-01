@@ -20,7 +20,7 @@ function setup () {
   slider1 = createSlider(0, 100, 50);
   slider2 = createSlider(0, 100, 0);
   slider3 = createSlider(0, 100, 70);
-  slider4 = createSlider(0, 100, 50);
+  slider4 = createSlider(0, 100, 0);
   slider5 = createSlider(0, 100, 50);
   slider6 = createSlider(0, 100, 50);
   slider7 = createSlider(0, 100, 50);
@@ -84,15 +84,17 @@ function draw () {
 
   push();
   if (mode == '1') {
-   // draw face using values mapped from 3 sliders
-  //  let tilt_value = map(s1, 0, 100, -90, 90);
-  //  let mouth_value = map(s2, 0, 100, 0.5, 10);
-  //  let eye_value = int(map(s3, 0, 100, 1, 3));
-  //  orangeAlienFace(tilt_value, eye_value, mouth_value);
+
   let sideTilt = map(s1, 0, 100, -10, 10);
-  let jawDrop = map(s2, 0, 100, 0, 2);
-  let eyeTilt = map(s3, 0, 100, -1, 0.5);
-  hydraFace(sideTilt, jawDrop, eyeTilt);
+  let jawDrop = map(s2, 0, 100, 0, 3);
+  let eyeTilt = map(s3, 0, 100, -0.5, 0.5);
+  let smoke = map(s4, 0, 100, 0, 1);
+  if(smoke >= 0.5) {
+    smoke = true;
+  } else {
+    smoke = false;
+  }
+  hydraFace(sideTilt, jawDrop, eyeTilt, smoke);
   }
 
   if (mode == '2') {

@@ -56,6 +56,12 @@ function draw () {
         let sideTilt = random(-10, 10);
         let jawDrop = random(0, 3);
         let eyeTilt = random(-1, 0.5);
+        let smokeRandom = random(0, 1);
+        if(smokeRandom >= 0.5) {
+          smoke = true;
+        } else {
+          smoke = false;
+        }
 
         noFill();
         noStroke();
@@ -169,7 +175,7 @@ function draw () {
         scale(10 - (y * 0.005));
         
 
-        hydraFace(sideTilt, jawDrop, eyeTilt);
+        hydraFace(sideTilt, jawDrop, eyeTilt, smoke);
         pop();
 
         // let neckX = x;
