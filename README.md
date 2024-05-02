@@ -20,24 +20,25 @@ Despite coming up with a solid plan for how the Hydra heads would connect to the
 
 #### Reflection
 Overall I am very happy with how the project turned out. If I had more time to improve it I would spend more time making the horns more detailed, and clean up the seams between the heads and the necks.
+In terms of randomisation, I experimented with the Gaussian Selection using the getAveragedRandom function for the head tilt and the jaw, but I found that this detracted from the unique poses of each face because the extremes of each varable are actually the most interesting variations of them. Instead I used this technique for the eyes and left the face tilt as completely random. I used conditional randomness for the smoke - which only appears if the jaw is open, and the nostrils - which will only flare if there is smoke. The smoke variable is also set up with weighted randomness so it only appears 20% of the time when the Hydra's jaw is open.
 
 ### Randomised Variables
-#### Sideways Tilt
-Although I have done 2D work, I am most at home in a 3D rendering engine, which is why I decided to try and emulate this style along the X axis, using a tilt that gives the ilusion of three dimentions by moving all of the verticies along a parabolic arc towards the bottom of the screen. I created this main variable first so I could create all the additional ones around this feature.
+#### Sideways Tilt - Continuous: -10, 10
+Although I have done 2D work, I am most at home in a 3D rendering engine, which is why I decided to try and emulate this style along the X axis, using a tilt that gives the ilusion of three dimentions by moving all of the verticies along a parabolic arc towards the bottom of the screen. I created this main variable first so I could create all the additional ones around this feature. I decided not to create a full 180 degree rotation because it would have broken some of the other facial features, and I thought that though I wanted variation in how the head was facing the camera, I still wanted them to have a general forward direction.
 
-#### Jaw Drop
-What dragon-like creature would be complete without an opening mouth? The jaw actually took me a while to perfect because it changes shape so much as the head tilts sideways. The other challenge to this was creating the cavity inside the mouth. I ended up just changing the jaw's interior colour as it rotated past the halfway point as well as adding in geometry for the back of the throat.
+#### Jaw Drop - Continuous: 0, 3.5
+What dragon-like creature would be complete without an opening mouth? The jaw actually took me a while to perfect because it changes shape so much as the head tilts sideways. The other challenge to this was creating the cavity inside the mouth. I ended up just changing the jaw's interior colour as it rotated past the halfway point as well as adding in geometry for the back of the throat. I let the jaw variable extend as far as I thought would be appropriate without distorting the rest of the face, especiallly from the side view of the Hydra.
 
-#### Eye Tilt
+#### Eye Tilt - Continuous: -0.5, 0.5
 The tilting eyes on this face system is the main source of emotion on the creature. The idea was to create range from sad to angry with a resting expression in the middle. The eyes turned out to be challenging because of the way they need to change when rotating behind the dominant side of the face. I also took time to move the eye direction as the head tilts so that the Hydra is always looking forward on it's local axis. With the change in expression, the Iris and Pupil also grow to fill the avaliable space.
 
-#### Smoke
+#### Smoke - Discrete
 As my only discrete variable, the smoke that the Hydra breathes is both necessary, and adds an extra element of life to the creature. The smoke will only apear if the jaw is open a certain distance and even then only has a 20% chance of appearing. When the Hydra blows smoke their nostrils also flare a little bit too.
 
-#### Base Colour & Eye Colour
-The final two editable variables on the face are the colours of the face and the eyes respectively. These variables are randomised with an averaged random so they will stay around their base colours with only minor changes and outliers to create visual interest.
+#### Base Colour & Eye Colour - Continous: 0, 360
+The final two editable variables on the face are the colours of the face and the eyes respectively. These variables are randomised with an averaged random so they will stay around their base colours with only minor changes and outliers to create visual interest. I decided to make the Hydra with cool toned colours because I wanted it to seem more natural and part of the earth - this is also why I chose a background colour that it could blend into - one that reflected the type of environment a creature such as this may dwell.
 
-#### Beheaded Hydra
+#### Beheaded Hydra - Discrete
 Occationally, (5% of the time) the arrangement will draw a beheaded Hydra head instead of the completed head. This is primarily just a series of ellipses with the odd bit of dripping blood, but I think it is quite an effective addition to my creature.
 
 ### Journal
