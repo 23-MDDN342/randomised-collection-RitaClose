@@ -13,6 +13,25 @@
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
+function beheadedFace(tilt) {
+  colorMode(HSB);
+  stroke(355, 100, 30);
+  strokeWeight(0.5);
+  for(i = 0; i < int(3); i ++) {
+    push();
+      translate(random(-1, 1), 0)
+      line(0, 0, 0, 0 + random(2, 8));
+    pop();
+  }
+  rotate(tilt);
+  strokeWeight(0.25);
+  fill(0, 100, 50);
+  stroke(355, 100, 30);
+  ellipse(0, 0, 11, 2);
+  fill(350, 100, 60);
+  stroke(350, 100, 80);
+  ellipse(0, 0, 10, 1);
+}
 
 function hydraFace(sideTilt, jawDrop, eyeTilt, smoke) {
   const bg_color = [71, 222, 219];

@@ -89,7 +89,7 @@ function draw () {
   let jawDrop = map(s2, 0, 100, 0, 3);
   let eyeTilt = map(s3, 0, 100, -0.5, 0.5);
   let smoke = map(s4, 0, 100, 0, 1);
-  if(smoke >= 0.5) {
+  if(smoke >= 0.8) {
     smoke = true;
   } else {
     smoke = false;
@@ -98,11 +98,8 @@ function draw () {
   }
 
   if (mode == '2') {
-     // let slider value 1 indicate thinness
-     blockyFace(s1);
-  }
-  if (mode == '3') {
-    simplePurpleFace();
+    let tilt = map(s5, 0, 100, 0, 274);
+    beheadedFace(tilt);
   }
 
   pop();
