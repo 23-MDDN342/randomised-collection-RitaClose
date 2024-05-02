@@ -90,14 +90,14 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   if(cOffset >= 0) {
     //Second Band
       //Bottom Quad
-      scaleBrightness = 20;
+      scaleBrightness = 25;
       scaleStrokeBrightness = 10;
       let band2cX = [XPos - 4 - lOffset * 2, XPos - 3 - lOffset * 7.5, XPos - 3 - lOffset * 6, XPos - 3 - lOffset * 1.5];
       let band2cY = [YPos + 5, YPos + 3, YPos + 7, YPos + 8];
       quad(band2cX[0], band2cY[0], band2cX[1], band2cY[1], band2cX[2], band2cY[2], band2cX[3], band2cY[3]);
       DrawScales(true, 7 + (cOffset / 2), 5, band2cX, band2cY, base_color, scaleBrightness, scaleStrokeBrightness);
       //Middle Quad
-      scaleBrightness = 30;
+      scaleBrightness = 35;
       scaleStrokeBrightness = 20;
       let band2bX = [XPos - 6 - lOffset * 0.4, XPos - 4 - lOffset * 5.5, XPos - 3 - lOffset * 7.5, XPos - 4 - lOffset * 2];
       let band2bY = [YPos - 3, YPos - 2, YPos + 3, YPos + 5];
@@ -105,7 +105,7 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
       DrawScales(true, 5 + (cOffset / 2), 12, band2bX, band2bY, base_color, scaleBrightness, scaleStrokeBrightness);
       //Top Quad
       fill(base_color, 100, 40);
-      scaleBrightness = 40;
+      scaleBrightness = 45;
       scaleStrokeBrightness = 30;
       let band2aX = [XPos - 4 - lOffset * 3.5, XPos - 4 - lOffset * 5, XPos - 4 - lOffset * 5.5, XPos - 6 - lOffset * 0.4];
       let band2aY = [YPos - 5, YPos - 3, YPos - 2, YPos - 3];
@@ -114,21 +114,21 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
 
     //First Band
       //Bottom Quad
-      scaleBrightness = 30;
+      scaleBrightness = 35;
       scaleStrokeBrightness = 20;
       let band1cX = [XPos - 4 + lOffset, XPos - 4 - lOffset * 2, XPos - 3 - lOffset * 1.5, XPos - 3 + lOffset];
       let band1cY = [YPos + 5, YPos + 5, YPos + 8, YPos + 7];
       quad(band1cX[0], band1cY[0], band1cX[1], band1cY[1], band1cX[2], band1cY[2], band1cX[3], band1cY[3]);
       DrawScales(true, 4 + (cOffset / 4), 5, band1cX, band1cY, base_color, scaleBrightness, scaleStrokeBrightness);
       //Middle Quad
-      scaleBrightness = 40;
+      scaleBrightness = 45;
       scaleStrokeBrightness = 30;
       let band1bX = [XPos - 6 + lOffset, XPos - 6 - lOffset * 0.4, XPos - 4 - lOffset * 2, XPos - 4 + lOffset];
       let band1bY = [YPos - 3, YPos - 3, YPos + 5, YPos + 5];
       quad(band1bX[0], band1bY[0], band1bX[1], band1bY[1], band1bX[2], band1bY[2], band1bX[3], band1bY[3]);
       DrawScales(true, 4 + (cOffset / 6), 14, band1bX, band1bY, base_color, scaleBrightness, scaleStrokeBrightness);
       //Top Quad
-      scaleBrightness = 50;
+      scaleBrightness = 55;
       scaleStrokeBrightness = 40;
       let band1aX = [XPos - 4 + lOffset, XPos - 4 - lOffset * 3.5, XPos - 6 - lOffset * 0.4, XPos - 6 + lOffset];
       let band1aY = [YPos - 5.5, YPos - 5, YPos - 3, YPos - 3];
@@ -151,7 +151,7 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   quad(faceX[0], faceY[0], faceX[1], faceY[1], faceX[2], faceY[2], faceX[3], faceY[3]);
 
   //Face Scales
-  scaleBrightness = 60;
+  scaleBrightness = 65;
   scaleStrokeBrightness = 30;
   DrawScales(true, 15 + cOffset, 15, faceX, faceY, base_color, scaleBrightness, scaleStrokeBrightness);
 
@@ -165,7 +165,7 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   if(cOffset >= 0) { // Jaw Outside Mouth
     teethNo = 2 + cOffset;
     fill(base_color, 100, 40);
-    scaleBrightness = 35;
+    scaleBrightness = 40;
     scaleStrokeBrightness = 20;
     quad(jawX[0], jawY[0], jawX[1], jawY[1], jawX[2], jawY[2], jawX[3], jawY[3]);
     DrawScales(true, 10 + cOffset, 5, jawX, jawY, base_color, scaleBrightness, scaleStrokeBrightness);
@@ -230,7 +230,7 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   //NoseBridge
   noStroke();
   fill(base_color, 100, 90);
-  scaleBrightness = 90;
+  scaleBrightness = 95;
   scaleStrokeBrightness = 60;
   let noseBridgeX = [XPos + (clOffset * 0.7), XPos - 1 + (clOffset * 0.7), XPos - 2 + clOffset, XPos + cOffset];
   let noseBridgeY = [YPos - 2, YPos - 2, YPos + 4, YPos + 5 - yDip];
@@ -265,7 +265,7 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   noStroke();
 
   //Draw Nose
-  scaleBrightness = 95;
+  scaleBrightness = 100;
   scaleStrokeBrightness = 80;
   fill(base_color, 100, 95);
   quad(noseX[0], noseY[0], noseX[1], noseY[1], noseX[2], noseY[2], noseX[3], noseY[3]);
@@ -281,7 +281,7 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
 
   //Mouth
   fill(base_color, 100, 85);
-  scaleBrightness = 85;
+  scaleBrightness = 90;
   scaleStrokeBrightness = 70;
   let mouthX = [XPos + cOffset, XPos - 3 + clOffset, XPos - 1.5 + clOffset, XPos + clOffset, YPos + 8 + jawDrop];
   let mouthY = [YPos + 6 + jawDrop, YPos + 6 + jawDrop, YPos + 8 + jawDrop, YPos + 8 + jawDrop];
@@ -309,7 +309,7 @@ function leftFace(XPos, YPos, lOffset, rOffset, cOffset, clOffset, yDip, jawDrop
   
   //Forehead
   fill(base_color, 100, 100);
-  scaleBrightness = 70;
+  scaleBrightness = 75;
   scaleStrokeBrightness = 65;
   let forredX = [XPos + (clOffset * 0.4), XPos - 4 + lOffset, XPos - 6 + lOffset, XPos + (cOffset * 0.8)];
   let forredY = [YPos -  5 + (yDip * 1.5), YPos - 5.5, YPos - 3, YPos - (yDip * 0.2)];
