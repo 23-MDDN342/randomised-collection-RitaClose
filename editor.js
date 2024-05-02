@@ -4,9 +4,9 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-const bg_color = [71, 222, 219];
+const bg_color = [71, 150, 80];
 let slider1, slider2, slider3, slider4, slider5;
-let slider6, slider7, slider8, slider9, slider10;
+let slider6;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -21,12 +21,8 @@ function setup () {
   slider2 = createSlider(0, 100, 0);
   slider3 = createSlider(0, 100, 70);
   slider4 = createSlider(0, 100, 0);
-  slider5 = createSlider(0, 100, 50);
-  slider6 = createSlider(0, 100, 50);
-  slider7 = createSlider(0, 100, 50);
-  slider8 = createSlider(0, 100, 50);
-  slider9 = createSlider(0, 100, 50);
-  slider10 = createSlider(0, 100, 50);
+  slider5 = createSlider(0, 100, 35);
+  slider6 = createSlider(0, 100, 12);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -34,10 +30,6 @@ function setup () {
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
   slider6.parent('slider6Container');
-  slider7.parent('slider7Container');
-  slider8.parent('slider8Container');
-  slider9.parent('slider9Container');
-  slider10.parent('slider10Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -65,10 +57,6 @@ function draw () {
   let s4 = slider4.value();
   let s5 = slider5.value();
   let s6 = slider6.value();
-  let s7 = slider7.value();
-  let s8 = slider8.value();
-  let s9 = slider9.value();
-  let s10 = slider10.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -85,20 +73,27 @@ function draw () {
   push();
   if (mode == '1') {
 
+  // Editor Slider Variables
   let sideTilt = map(s1, 0, 100, -10, 10);
   let jawDrop = map(s2, 0, 100, 0, 3);
   let eyeTilt = map(s3, 0, 100, -0.5, 0.5);
   let smoke = map(s4, 0, 100, 0, 1);
+  let base_color = map(s5, 0, 100, 0, 360);
+  let eye_color = map(s6, 0, 100, 0, 360);
+  
+  //Conditional Smoke Variable
   if(smoke >= 0.8) {
     smoke = true;
   } else {
     smoke = false;
   }
-  hydraFace(sideTilt, jawDrop, eyeTilt, smoke);
+  
+  //Draw Hydra Head
+  hydraFace(sideTilt, jawDrop, eyeTilt, smoke, base_color, eye_color);
   }
 
   if (mode == '2') {
-    let tilt = map(s5, 0, 100, 0, 274);
+    let tilt;
     beheadedFace(tilt);
   }
 
