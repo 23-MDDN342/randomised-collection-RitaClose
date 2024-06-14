@@ -1,7 +1,7 @@
 //FACE ARRANGEMENT
 
-const canvasWidth = 960;
-const canvasHeight = 500;
+const canvasWidth = 1920;
+const canvasHeight = 1080;
 let curRandomSeed = 0;
 
 let lastSwapTime = 0;
